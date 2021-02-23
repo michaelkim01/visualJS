@@ -2,12 +2,33 @@
 const foodInput = document.querySelector('.food-input');
 const foodButton = document.querySelector('.food-button');
 const foodList = document.querySelector('.food-items-list');
+const calorieButton = document.querySelector('.calorie-button');
+const age = document.querySelector('.age');
+const gender = document.querySelector('[name="gender"]');
+const feet = document.querySelector('.height-feet');
+const inches = document.querySelector('.height-inches');
+const weight = document.querySelector('.weight-pounds');
+const activity = document.querySelector('.activity');
+
 
 // Event Listeners
 foodButton.addEventListener('click', addFood);
 foodList.addEventListener('click', deleteFood);
+calorieButton.addEventListener('click', calculateCalories);
 
 // Functions
+function calculateCalories() {
+    event.preventDefault();
+
+    let cpd = 0;
+    if (gender.value === "male") {
+        console.log('male');
+        console.log(weight.value);
+    } else if (gender.value === "female") {
+        console.log('female');
+    }
+    
+}
 
 function addFood(event) {
     event.preventDefault();
