@@ -18,18 +18,20 @@
             <form>
                 <label>age</label>
                 <input type="number" class="age">
-
+                
                 <label>gender</label>
-                <input type="radio" name="gender" value="male"> male
-                <input type="radio" name="gender" value="female"> female
-
+                <select class="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                
                 <label>height</label>
                 <input type="number" class="height-feet" placeholder="feet">
                 <input type="number" class="height-inches" placeholder="inches">
-
+                
                 <label>weight</label>
                 <input type="number" class="weight-pounds" placeholder="lb">
-
+                
                 <label>activity</label>
                 <select class="activity">
                     <option value="sedentary">Sedentary</option>
@@ -38,6 +40,8 @@
                 </select>
                 <button class="calorie-button" type="submit">Submit</button>
             </form>
+            <div class="cpd-display">0</div>
+            Calories Per Day
         </div>
         <div class="meal-plan">
             <form>

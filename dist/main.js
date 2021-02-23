@@ -4,12 +4,12 @@ const foodButton = document.querySelector('.food-button');
 const foodList = document.querySelector('.food-items-list');
 const calorieButton = document.querySelector('.calorie-button');
 const age = document.querySelector('.age');
-const gender = document.querySelector('[name="gender"]');
+const gender = document.querySelector('.gender');
 const feet = document.querySelector('.height-feet');
 const inches = document.querySelector('.height-inches');
-const weight = document.querySelector('.weight-pounds');
+const weightPounds = document.querySelector('.weight-pounds');
 const activity = document.querySelector('.activity');
-
+const cpdDisplay = document.querySelector('.cpd-display');
 
 // Event Listeners
 foodButton.addEventListener('click', addFood);
@@ -21,13 +21,14 @@ function calculateCalories() {
     event.preventDefault();
 
     let cpd = 0;
+
     if (gender.value === "male") {
-        console.log('male');
-        console.log(weight.value);
-    } else if (gender.value === "female") {
-        console.log('female');
+        cpd = Math.round(10 * 0.453592 * weightPounds.value + 6.25 * (30.48 * feet.value + 2.54 * inches.value) - 5 * age.value + 5); 
+    } else {
+        cpd = Math.round(10 * 0.453592 * weightPounds.value + 6.25 * (30.48 * feet.value + 2.54 * inches.value) - 5 * age.value - 161); 
     }
     
+    cpdDisplay.textContent = cpd;
 }
 
 function addFood(event) {
