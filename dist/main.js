@@ -62,3 +62,19 @@ function deleteFood(e) {
         })
     }
 }
+
+// API
+
+fetch("https://nutritionix-api.p.rapidapi.com/v1_1/search/apple?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat", {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-key": "",
+        "x-rapidapi-host": "nutritionix-api.p.rapidapi.com"
+    }
+})
+    .then(response => {
+        console.log(response);
+    })
+    .catch(err => {
+        console.error(err);
+    });
