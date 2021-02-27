@@ -33,21 +33,49 @@ function calculateCalories() {
 
 function addFood(event) {
     event.preventDefault();
+    
+    // API
+    let defaultField = "?fields=item_name%2Cnf_calories%2Cnf_total_fat";
+    let apiURL = "https://nutritionix-api.p.rapidapi.com/v1_1/search/" + foodInput.value + defaultField;
+    fetch(apiURL, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "",
+            "x-rapidapi-host": "nutritionix-api.p.rapidapi.com"
+        }
+    })
+        .then(response => 
+            // if (response.ok) {
+            //     console.log("SUCCESS")
+            // } else {
+            //     console.log("FAILURE")
+            // }
+            response.json()
+        )
+        .then(data => {
+            console.log(data.hits)
+            const foodDiv = document.createElement("div");
+            foodDiv.classList.add("food");
+        
+            const newFood = document.createElement("li");
+            newFood.innerText = 
+                data.hits[0].fields.item_name
+                + "\n" + "Calories: "
+                + data.hits[0].fields.nf_calories;
+            newFood.classList.add("food-item");
+        
+            foodDiv.appendChild(newFood);
+            const deleteButton = document.createElement("button");
+            deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+            deleteButton.classList.add("delete-btn");
+            foodDiv.appendChild(deleteButton);
+        
+            foodList.appendChild(foodDiv);
 
-    const foodDiv = document.createElement("div");
-    foodDiv.classList.add("food");
+        })
+        .catch(err => console.error(err));
 
-    const newFood = document.createElement("li");
-    newFood.innerText = foodInput.value;
-    newFood.classList.add("food-item");
 
-    foodDiv.appendChild(newFood);
-    const deleteButton = document.createElement("button");
-    deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
-    deleteButton.classList.add("delete-btn");
-    foodDiv.appendChild(deleteButton);
-
-    foodList.appendChild(foodDiv);
 
     foodInput.value = "";
 }
@@ -63,18 +91,3 @@ function deleteFood(e) {
     }
 }
 
-// API
-
-fetch("https://nutritionix-api.p.rapidapi.com/v1_1/search/apple?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-key": "",
-        "x-rapidapi-host": "nutritionix-api.p.rapidapi.com"
-    }
-})
-    .then(response => {
-        console.log(response);
-    })
-    .catch(err => {
-        console.error(err);
-    });
