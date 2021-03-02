@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./dist/main.css" />
         <link rel="stylesheet" href="./dist/calorie-calculator.css" />
+        <link rel="stylesheet" href="./dist/meal-plan.css" />
         <title>Nutritious</title>
     </head>
 
@@ -14,44 +15,47 @@
         <header>
             <h1>Nutritious!</h1>
         </header>
-        <div class="calorie-calculator">
-            <form>
-                <label>age</label>
-                <input type="number" class="age">
-                
-                <label>gender</label>
-                <select class="gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-                
-                <label>height</label>
-                <input type="number" class="height-feet" placeholder="feet">
-                <input type="number" class="height-inches" placeholder="inches">
-                
-                <label>weight</label>
-                <input type="number" class="weight-pounds" placeholder="lb">
-                
-                <label>activity</label>
-                <select class="activity">
-                    <option value="sedentary">Sedentary</option>
-                    <option value="moderate">Moderate</option>
-                    <option value="active">Active</option>
-                </select>
-                <button class="calorie-button" type="submit">Submit</button>
-            </form>
-            <div class="cpd-display">0</div>
-            Calories Per Day
-        </div>
-        <div class="meal-plan">
-            <form>
-                <input type="text" class="food-input">
-                <button class="food-button" type="submit">
-                    <i class="fas fa-plus-square"></i>
-                </button>
-            </form>
-            <div class="food-items-container">
-                <ul class="food-items-list"></ul>
+        <div class="row">
+            
+            <div class="calorie-calculator">
+                <form>
+                    <label>age</label>
+                    <input type="number" class="age">
+                    
+                    <label>gender</label>
+                    <select class="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    
+                    <label>height</label>
+                    <input type="number" class="height-feet" placeholder="feet">
+                    <input type="number" class="height-inches" placeholder="inches">
+                    
+                    <label>weight</label>
+                    <input type="number" class="weight-pounds" placeholder="lb">
+                    
+                    <label>activity</label>
+                    <select class="activity">
+                        <option value="sedentary">Sedentary</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="active">Active</option>
+                    </select>
+                    <button class="calorie-button" type="submit">Submit</button>
+                </form>
+                <div class="cpd-display">0</div>
+                Calories Per Day
+            </div>
+            <div class="meal-plan">
+                <form>
+                    <input type="text" class="food-input">
+                    <button class="food-button" type="submit">
+                        <i class="fas fa-plus-square"></i>
+                    </button>
+                </form>
+                <div class="food-items-container">
+                    <ul class="food-items-list"></ul>
+                </div>
             </div>
         </div>
 
