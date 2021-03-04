@@ -40,7 +40,7 @@ function addFood(event) {
     fetch(apiURL, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "",
+            "x-rapidapi-key": "a3231a95b6mshe8b0418c7478e17p18a31ajsn6c73c46c5d9e",
             "x-rapidapi-host": "nutritionix-api.p.rapidapi.com"
         }
     })
