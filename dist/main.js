@@ -23,11 +23,26 @@ function calculateCalories() {
     let cpd = 0;
 
     if (gender.value === "male") {
-        cpd = Math.round(10 * 0.453592 * weightPounds.value + 6.25 * (30.48 * feet.value + 2.54 * inches.value) - 5 * age.value + 5); 
+        cpd = 10 * 0.453592 * weightPounds.value + 6.25 * (30.48 * feet.value + 2.54 * inches.value) - 5 * age.value + 5; 
     } else {
-        cpd = Math.round(10 * 0.453592 * weightPounds.value + 6.25 * (30.48 * feet.value + 2.54 * inches.value) - 5 * age.value - 161); 
+        cpd = 10 * 0.453592 * weightPounds.value + 6.25 * (30.48 * feet.value + 2.54 * inches.value) - 5 * age.value - 161; 
     }
     
+    switch (activity.value) {
+        case "sedentary":
+            cpd = 1.2 * cpd;
+            break;
+        case "moderate":
+            cpd = 1.465 * cpd;
+            break;
+        case "active":
+            cpd = 1.55 * cpd;
+            break;
+        default:
+    }
+
+    cpd = Math.round(cpd);
+
     cpdDisplay.textContent = cpd;
 }
 
