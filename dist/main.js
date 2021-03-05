@@ -43,7 +43,7 @@ function calculateCalories() {
 
     cpd = Math.round(cpd);
 
-    cpdDisplay.textContent = cpd;
+    cpdDisplay.textContent = parseInt(cpdDisplay.textContent) + cpd;
 }
 
 function addFood(event) {
@@ -78,7 +78,8 @@ function addFood(event) {
                 + "\n" + "Calories: "
                 + data.hits[0].fields.nf_calories;
             newFood.classList.add("food-item");
-        
+            
+            cpdDisplay.textContent = Math.round(cpdDisplay.textContent - data.hits[0].fields.nf_calories);
             foodDiv.appendChild(newFood);
             const deleteButton = document.createElement("button");
             deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
